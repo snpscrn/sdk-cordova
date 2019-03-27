@@ -1,0 +1,33 @@
+{
+  "name": "cordova-plugin-snapscreen",
+  "version": "1.0.18",
+  "description": "Cordova plugin for Snapscreen",
+  "cordova": {
+    "id": "cordova-plugin-snapscreen",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "engines": {
+    "cordovaDependencies": {
+      "2.2.2": {
+        "cordova": ">=4.2.0",
+        "cordova-android": ">=4.0.0",
+        "cordova-ios": ">=3.8.0"
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/snpscrn/sdk-cordova.git"
+  },
+  "keywords": [
+    "cordova",
+    "snapscreen",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "Snapscreen <support@snapscreen.com>",
+  "homepage": "https://github.com/snpscrn/sdk-cordova"
+}

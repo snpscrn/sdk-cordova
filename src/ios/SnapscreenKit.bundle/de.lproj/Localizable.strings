@@ -1,0 +1,29 @@
+/* 
+  SnapscreenKitLocalizable.strings
+  SnapscreenKit
+
+  Created by Martin Reichart on 16/09/16.
+  Copyright © 2016 Snapscreen Application GmbH. All rights reserved.
+*/
+
+"Snapscreen_Snap_Title" = "Snap TV";
+"Snapscreen_Snap_ViewFinder_Hint" = "Richten Sie Ihren TV hier aus\nund drücken Sie anschließend auf den Kamera-Button.";
+"Snapscreen_Snapping_Camera_Access_Required" = "Zum Snappen ist die Verwendung der Kamera notwendig - bitte geben Sie Snapscreen die entsprechenden Berechtigung in den Einstellungen Ihres Gerätes.";
+"Snapscreen_Snapping_Camera_Required" = "Zum Snappen wird ein Gerät mit Kamera benötigt";
+"Snapscreen_Snapping_Failed" = "Fehler beim Snap";
+"Snapscreen_Snapping_No_results" = "Leider wurden keine Resultate gefunden - entweder der Sender, den sie gerade ansehen, wird nicht unterstützt oder ein TV-Bild wurde nicht erkannt.";
+"Snapscreen_Snapping_Progress_Stage_Detecting_TV" = "Suche nach TV ...";
+"Snapscreen_Snapping_Progress_Stage_Calculating_Fingerprint" = "Berechne ...";
+"Snapscreen_Snapping_Progress_Stage_Sending_Fingerprint" = "Sende Informationen ...";
+"Snapscreen_Snapping_Progress_Stage_Waiting_For_Response" = "Warte auf Resultate ...";
+"Snapscreen_Snapping_Progress_Stage_Done" = "Bereit";
+
+"Snapscreen_SnapResults_Title" = "Snap Ergebnisse";
+"Snapscreen_SnapResults_Header" = "Bitte wählen Sie das am besten passende Ergebnis";
+
+"Snapscreen_Snap_Button_Title" = "Snap";
+"Snapscreen_ClipShare_Tutorial_GetStarted" = "Get Started";
+"Snapscreen_ClipShare_Trimming_Share" = "Clip teilen";
+"Snapscreen_ClipShare_Error_OK" = "OK";
+"Snapscreen_ClipShare_Share_Error_Title" = "Clip-Erstellung fehlgeschlagen";
+"Snapscreen_ClipShare_Share_Error_Message" = "Während der Erstellung des ausgewählten Clips ist ein Fehler aufgetreten.";

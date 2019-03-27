@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin id="cordova-plugin-snapscreen" version="5.1.2" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>Snapscreen</name>
+    <description>Cordova plugin for Snapscreen</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,snapscreen</keywords>
+    <author>Snapscreen</author>
+    <repo>https://github.com/snpscrn/sdk-cordova</repo>
+   
+    <engines>
+        <engine name="cordova-android" version=">=4.0.0" />
+        <engine name="cordova-plugman" version=">=4.2.0" />
+        <engine name="cordova-ios" version=">=3.8.0" />
+    </engines>
+    
+    <js-module src="www/snapscreen.js" name="Snapscreen">
+        <clobbers target="snapscreen" />
+    </js-module>
+    
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="Snapscreen">
+                <param name="ios-package" value="Snapscreen" />
+				<param name="onload" value="true"/>
+				<preference name="snapscreen-client-id" value="client id"/>
+				<preference name="snapscreen-secret" value="secret"/>
+				<preference name="snapscreen-test-environment" value="false"/>
+            </feature>
+        </config-file>
+        <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
+            <string>This app needs access to your camera for snapping and clip sharing functionality.</string>
+        </config-file>
+        <header-file src="src/ios/Snapscreen.h" />
+        <source-file src="src/ios/Snapscreen.m" />
+		<resource-file src="src/ios/SnapscreenKit.bundle" />
+		<framework src="src/ios/SnapscreenKit.framework" custom="true" embed="true"/>
+        <framework src="libstdc++.dylib" />
+        <framework src="libc++.dylib" />
+    </platform>
+</plugin>

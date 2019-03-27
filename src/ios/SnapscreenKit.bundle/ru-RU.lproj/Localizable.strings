@@ -1,0 +1,30 @@
+/* 
+  SnapscreenKitLocalizable.strings
+  SnapscreenKit
+
+  Created by Martin Reichart on 16/09/16.
+  Copyright © 2016 Snapscreen Application GmbH. All rights reserved.
+*/
+
+
+"Snapscreen_Snap_Title" = "Snap TV";
+"Snapscreen_Snap_ViewFinder_Hint" = "Наведите на экран Вашего телевизора и нажмите кнопку камеры внизу";
+"Snapscreen_Snapping_Camera_Access_Required" = "Чтобы сделать снимок, необходим доступ к камере. Пожалуйста, предоставьте Snapscreen доступ в настройках Вашего устройства.";
+"Snapscreen_Snapping_Camera_Required" = "Чтобы сделать снимок, необходимо устройство оборудованное камерой.";
+"Snapscreen_Snapping_Failed" = "Не удалось сделать снимок";
+"Snapscreen_Snapping_No_results" = "Мы извиняемся, но ничего не найдено. Либо канал, который Вы смотрите, не поддерживается Snapscreen, либо не удалось обнаружить экран Вашего телевизора.";
+"Snapscreen_Snapping_Progress_Stage_Detecting_TV" = "Поиск программы...";
+"Snapscreen_Snapping_Progress_Stage_Calculating_Fingerprint" = "Вычисление...";
+"Snapscreen_Snapping_Progress_Stage_Sending_Fingerprint" = "Отправка информации...";
+"Snapscreen_Snapping_Progress_Stage_Waiting_For_Response" = "Получение результата...";
+"Snapscreen_Snapping_Progress_Stage_Done" = "Готово";
+
+"Snapscreen_SnapResults_Title" = "Результаты Поиска";
+"Snapscreen_SnapResults_Header" = "Пожалуйста, выберите наиболее подходящий результат";
+
+"Snapscreen_Snap_Button_Title" = "Snap";
+"Snapscreen_ClipShare_Tutorial_GetStarted" = "Get Started";
+"Snapscreen_ClipShare_Trimming_Share" = "Share Clip";
+"Snapscreen_ClipShare_Error_OK" = "OK";
+"Snapscreen_ClipShare_Share_Error_Title" = "Failed preparing clip";
+"Snapscreen_ClipShare_Share_Error_Message" = "An error occured while preparing your selected clip for sharing.";

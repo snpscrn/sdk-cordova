@@ -1,0 +1,6 @@
+framework module SnapscreenKit {
+  umbrella header "SnapscreenKit.h"
+
+  export *
+  module * { export * }
+}
