@@ -8,15 +8,24 @@
 
 @implementation Snapscreen
 
-- (void)pluginInitialize {
-    NSString* clientID = [[[self commandDelegate] settings] objectForKey: @"snapscreen-client-id"];
-    NSString* secret = [[[self commandDelegate] settings] objectForKey: @"snapscreen-secret"];
-    BOOL connectToTestEnvironment = [[[[self commandDelegate] settings] objectForKey: @"snapscreen-test-environment"] boolValue];
-    id<SnapscreenLoggingHandler> loggingHandler = nil;
-#ifdef DEBUG
-    loggingHandler = [SnapscreenNSLogLoggingHandler new];
-#endif
-    [SnapscreenKit sharedSnapscreenKitWithClientID: clientID clientSecret: secret testEnvironment: connectToTestEnvironment loggingHandler: loggingHandler locationProvider: nil delegate: self];
+- (void) initialize:(CDVInvokedUrlCommand*)command {
+    if ([command.arguments count] == 3) {
+        NSString* clientID = [command argumentAtIndex: 0];
+        NSString* secret = [command argumentAtIndex: 1];
+        BOOL connectToTestEnvironment = [[command argumentAtIndex: 2] boolValue];
+        
+        id<SnapscreenLoggingHandler> loggingHandler = nil;
+        #ifdef DEBUG
+        loggingHandler = [SnapscreenNSLogLoggingHandler new];
+        #endif
+        [SnapscreenKit sharedSnapscreenKitWithClientID: clientID clientSecret: secret testEnvironment: connectToTestEnvironment loggingHandler: loggingHandler locationProvider: nil delegate: self];
+        
+        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
+    } else {
+        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_ERROR messageAsString: @"Missing initialization parameters"];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
+    }
 }
 
 - (void)snapscreenKitDidFailWithError:(NSError *)error {
@@ -141,7 +150,7 @@
 
 - (void)clipSharingViewControllerDidCancel:(SnapscreenClipSharingViewController *)sharingViewController {
     if (self.callbackId != nil) {
-        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_NO_RESULT messageAsDictionary:@{@"result":@"cancel"}];
+        CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsDictionary:@{@"result":@"cancel"}];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:self.callbackId];
         self.callbackId = nil;
     }

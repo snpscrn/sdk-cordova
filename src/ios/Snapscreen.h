@@ -5,6 +5,7 @@
 @interface Snapscreen : CDVPlugin {
 }
 
-- (void)startClipSharing:(CDVInvokedUrlCommand*)command;
+- (void) startClipSharing:(CDVInvokedUrlCommand*)command;
+- (void) initialize:(CDVInvokedUrlCommand*)command;
 
 @end

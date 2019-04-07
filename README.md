@@ -2,18 +2,12 @@
 
 cordova plugin add https://github.com/snpscrn/sdk-cordova.git
 
-## Configuring the plugin
+## Configuring & initalizing the plugin
 
-Make sure that the config.xml in your platform has the following block with the appropriate configuration for your client id and secret.
+We suggest that you initialize the SDK as soon as your application starts and you get the deviceReady callbacks from Cordova. Perform the following call in your javascript code to initialize the SDK:
 
 ```
-<feature name="Snapscreen">
-	<param name="ios-package" value="Snapscreen" />
-	<param name="onload" value="true" />
-	<preference name="snapscreen-client-id" value="client id" />
-	<preference name="snapscreen-secret" value="secret" />
-	<preference name="snapscreen-test-environment" value="false" />
-</feature>
+	snapscreen.initialize(null, null, "client-id", "secret", <true/false - connect to test environment>);
 ```
 
 ## Sharing Clips
@@ -28,6 +22,23 @@ When the user cancels clip sharing the successCallback will receive an object as
 
 When the user selects a clip for sharing the successCallback will receive an object as parameter that contains the key **result** with value *share* and the keys **videoPlayerURL** and **thumbnailURL**.
 
+A sample code for handling the callbacks looks like this:
+
+```
+	let clipsharingSuccessCallback = function(data) {
+		if (data['result'] === 'cancel') {
+			alert('Cancelled');
+		} else if (data['result'] === 'share') {
+			alert('Sharing');
+		}
+	}
+
+	let clipsharingFailureCallback = function(error) {
+		console.log(error);
+	}
+	
+	snapscreen.startClipSharing(clipsharingSuccessCallback, clipsharingFailureCallback, {mainButtonColor: 'ff0000'});
+```
 
 ### Passing configuration parameters
 
@@ -49,6 +60,10 @@ To pass configuration parameters, use the third parameter of the startClipSharin
 * *mainButtonTextColor*: Main Button Text Color in Hex (without the leading #)
 * *tutorialTextColor*: Tutorial text color in Hex (without the leading #)
 
+
+### Logging
+
+When run in debug mode - the SDK will log various detailed log statements on iOS via NSLog or on Android via the Log API.
 
 ## Support
 

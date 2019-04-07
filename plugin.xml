@@ -22,9 +22,6 @@
             <feature name="Snapscreen">
                 <param name="ios-package" value="Snapscreen" />
 				<param name="onload" value="true"/>
-				<preference name="snapscreen-client-id" value="client id"/>
-				<preference name="snapscreen-secret" value="secret"/>
-				<preference name="snapscreen-test-environment" value="false"/>
             </feature>
         </config-file>
         <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
