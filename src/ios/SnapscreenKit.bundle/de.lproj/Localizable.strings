@@ -27,3 +27,5 @@
 "Snapscreen_ClipShare_Error_OK" = "OK";
 "Snapscreen_ClipShare_Share_Error_Title" = "Clip-Erstellung fehlgeschlagen";
 "Snapscreen_ClipShare_Share_Error_Message" = "Während der Erstellung des ausgewählten Clips ist ein Fehler aufgetreten.";
+"Snapscreen_ClipShare_Share_Error_No_Preview_Frames_Title" = "Vorschau konnte nicht geladen werden";
+"Snapscreen_ClipShare_Share_Error_No_Preview_Frames_Message" = "Versuchen Sie es in ein paar Minuten erneut und scrollen Sie zurück auf der Zeitleiste um den Moment zu clippen.";

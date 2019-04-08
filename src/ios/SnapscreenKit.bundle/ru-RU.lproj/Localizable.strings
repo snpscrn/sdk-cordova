@@ -28,3 +28,5 @@
 "Snapscreen_ClipShare_Error_OK" = "OK";
 "Snapscreen_ClipShare_Share_Error_Title" = "Failed preparing clip";
 "Snapscreen_ClipShare_Share_Error_Message" = "An error occured while preparing your selected clip for sharing.";
+"Snapscreen_ClipShare_Share_Error_No_Preview_Frames_Title" = "Preview could not be loaded";
+"Snapscreen_ClipShare_Share_Error_No_Preview_Frames_Message" = "Please try again in a few minutes and scroll back in time to clip the moment.";
