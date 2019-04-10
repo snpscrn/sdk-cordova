@@ -16,6 +16,21 @@
     <js-module src="www/snapscreen.js" name="Snapscreen">
         <clobbers target="snapscreen" />
     </js-module>
+	
+	<platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Snapscreen">
+                <param name="android-package" value="com.snapscreen.cordova.Snapscreen" />
+            </feature>
+        </config-file>
+		
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+			<activity android:name="com.snapscreen.sdk.ui.ClipSharingActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+		</config-file>
+		
+        <framework src="src/android/build-extras.gradle" custom="true" type="gradleReference" />
+        <source-file src="src/android/Snapscreen.java" target-dir="src/com/snapscreen/cordova" />		
+	</platform>
     
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
