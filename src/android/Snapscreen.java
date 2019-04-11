@@ -10,6 +10,7 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.SpannableString;
 import android.util.Log;
 
 import com.snapscreen.sdk.SnapscreenKit;
@@ -17,6 +18,7 @@ import com.snapscreen.sdk.SnapscreenKitListener;
 import com.snapscreen.sdk.model.sharing.SnapscreenClipShareInformation;
 import com.snapscreen.sdk.ui.ClipSharingActivity;
 import com.snapscreen.sdk.ui.SnapscreenClipSharingConfiguration;
+import com.snapscreen.sdk.ui.SnapscreenClipSharingTutorialContent;
 
 public class Snapscreen extends CordovaPlugin {
 
@@ -104,7 +106,81 @@ public class Snapscreen extends CordovaPlugin {
                 String configurationData = args.optString(0);
                 try {
                     JSONObject configurationObject = new JSONObject(configurationData);
-                    
+
+                    String sharingIntroductionHint = configurationObject.optString("sharingIntroductionHint");
+                    if (sharingIntroductionHint != null) {
+                        configuration.setSharingIntroductionHint(SpannableString.valueOf(sharingIntroductionHint));
+                    }
+                    int maximumTutorialLogoImageDpHeight = configurationObject.optInt("maximumTutorialLogoImageDpHeight", -1);
+                    if (maximumTutorialLogoImageDpHeight != -1) {
+                        configuration.setMaximumTutorialLogoImageDpHeight(maximumTutorialLogoImageDpHeight);
+                    }
+                    int maximumLargeSponsorImageDpHeight = configurationObject.optInt("maximumLargeSponsorImageDpHeight", -1);
+                    if (maximumLargeSponsorImageDpHeight != -1) {
+                        configuration.setMaximumLargeSponsorImageDpHeight(maximumLargeSponsorImageDpHeight);
+                    }
+                    int maximumSmallSponsorImageDpHeight = configurationObject.optInt("maximumSmallSponsorImageDpHeight", -1);
+                    if (maximumSmallSponsorImageDpHeight != -1) {
+                        configuration.setMaximumSmallSponsorImageDpHeight(maximumSmallSponsorImageDpHeight);
+                    }
+
+                    String largeSponsorImageResourceIdName = configurationObject.optString("largeSponsorImageResourceIdName");
+                    if (largeSponsorImageResourceIdName != null) {
+                        int largeSponsorImageResourceId = cordova.getActivity().getResources().getIdentifier(largeSponsorImageResourceIdName,"drawable", cordova.getActivity().getPackageName());
+                        if (largeSponsorImageResourceId != 0) {
+                            configuration.setLargeSponsorImageResourceId(largeSponsorImageResourceId);
+                        }
+                    }
+
+                    String smallSponsorImageResourceIdName = configurationObject.optString("smallSponsorImageResourceIdName");
+                    if (smallSponsorImageResourceIdName != null) {
+                        int smallSponsorImageResourceId = cordova.getActivity().getResources().getIdentifier(smallSponsorImageResourceIdName,"drawable", cordova.getActivity().getPackageName());
+                        if (smallSponsorImageResourceId != 0) {
+                            configuration.setSmallSponsorImageResourceId(smallSponsorImageResourceId);
+                        }
+                    }
+
+                    String tutorialLogoImageResourceIdName = configurationObject.optString("tutorialLogoImageResourceIdName");
+                    if (tutorialLogoImageResourceIdName != null) {
+                        int tutorialLogoImageResourceId = cordova.getActivity().getResources().getIdentifier(tutorialLogoImageResourceIdName,"drawable", cordova.getActivity().getPackageName());
+                        if (tutorialLogoImageResourceId != 0) {
+                            configuration.setTutorialLogoImageResourceId(tutorialLogoImageResourceId);
+                        }
+                    }
+
+                    String sharingIntroductionHintImageResourceIdName = configurationObject.optString("sharingIntroductionHintImageResourceIdName");
+                    if (sharingIntroductionHintImageResourceIdName != null) {
+                        int sharingIntroductionHintImageResourceId = cordova.getActivity().getResources().getIdentifier(sharingIntroductionHintImageResourceIdName,"drawable", cordova.getActivity().getPackageName());
+                        if (sharingIntroductionHintImageResourceId != 0) {
+                            configuration.setSharingIntroductionHintImageResourceId(sharingIntroductionHintImageResourceId);
+                        }
+                    }
+
+                    String tutorialBackgroundImageResourceIdName = configurationObject.optString("tutorialBackgroundImageResourceIdName");
+                    if (tutorialBackgroundImageResourceIdName != null) {
+                        int tutorialBackgroundImageResourceId = cordova.getActivity().getResources().getIdentifier(tutorialBackgroundImageResourceIdName,"drawable", cordova.getActivity().getPackageName());
+                        if (tutorialBackgroundImageResourceId != 0) {
+                            configuration.setTutorialBackgroundImageResourceId(tutorialBackgroundImageResourceId);
+                        }
+                    }
+
+                    JSONArray tutorialContent = configurationObject.optJSONArray("tutorialContent");
+                    if (tutorialContent != null) {
+                        for (int i = 0; i < tutorialContent.length(); i++) {
+                            JSONObject tutorialObject = tutorialContent.optJSONObject(i);
+
+                            if (tutorialObject != null) {
+                                String text = tutorialObject.optString("text", "");
+                                String imageResourceIdName = configurationObject.optString("imageResourceId");
+                                if (imageResourceIdName != null) {
+                                    int imageResourceId = cordova.getActivity().getResources().getIdentifier(imageResourceIdName,"drawable", cordova.getActivity().getPackageName());
+                                    if (imageResourceId != 0) {
+                                        configuration.getTutorialContent().add(new SnapscreenClipSharingTutorialContent(imageResourceId, text));
+                                    }
+                                }
+                            }
+                        }
+                    }
                 } catch (Exception ignored){}
 
                 Intent intent = new Intent(cordova.getActivity(), ClipSharingActivity.class);

@@ -133,6 +133,11 @@
                 configuration.tutorialTextColor = [self snapscreenColorFromHexString: tutorialTextColorHex];
             }
             
+            NSString* sharingIntroductionHint = [configurationDictionary objectForKey: @"sharingIntroductionHint"];
+            if (sharingIntroductionHint) {
+                configuration.sharingIntroductionHint = [[NSAttributedString alloc] initWithString: sharingIntroductionHint attributes: @{NSForegroundColorAttributeName : configuration.mainButtonColor, NSFontAttributeName : configuration.tutorialFont}];
+            }
+            
             SnapscreenClipSharingNavigationController* sharingNavigationController = [[SnapscreenClipSharingNavigationController alloc] initWithConfiguration: configuration delegate: self];
             [self.viewController presentViewController: sharingNavigationController animated: YES completion: nil];
             
