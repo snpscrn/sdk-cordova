@@ -48,5 +48,7 @@
 		<framework src="src/ios/SnapscreenKit.framework" custom="true" embed="true"/>
         <framework src="libstdc++.dylib" />
         <framework src="libc++.dylib" />
+
+		<hook type="after_plugin_add" src="add_strip_architecture_script.js" />
     </platform>
 </plugin>
