@@ -96,6 +96,10 @@ To modify various localization texts, add custom entries to the platform's strin
 </config-file>
 ```
 
+### Asset guidelines
+
+See the [iOS](https://github.com/snpscrn/sdk-ios) and [Android](https://github.com/snpscrn/sdk-android) SDK documentation for guidelines for the assets that can be provided:
+
 ### Logging
 
 When run in debug mode - the SDK will log various detailed log statements on iOS via NSLog or on Android via the Log API.
