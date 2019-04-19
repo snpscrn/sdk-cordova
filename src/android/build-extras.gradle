@@ -6,5 +6,5 @@ repositories {
 
 
 dependencies {
-	implementation 'com.snapscreen.mobile:snapscreen-sdk:1.0.13'
+	implementation 'com.snapscreen.mobile:snapscreen-sdk:1.0.14'
 }

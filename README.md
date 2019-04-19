@@ -7,8 +7,14 @@ cordova plugin add https://github.com/snpscrn/sdk-cordova.git
 We suggest that you initialize the SDK as soon as your application starts and you get the deviceReady callbacks from Cordova. Perform the following call in your javascript code to initialize the SDK:
 
 ```
-	snapscreen.initialize(null, null, "client-id", "secret", <true/false - connect to test environment>);
+	snapscreen.initialize(null, null, "client-id", "secret", <true/false - connect to test environment>, {});
 ```
+
+The last parameter is for additional initialization options. You can pass the following options here:
+
+* *countryCode*: Country code hint to be used for snapping
+* *backendURL*: The backend URL to use for the snapping backend (ignores the connect to test environment flag if set) 
+* *clipsharingBackendURL*: The backend URL to use for the clip sharing backend (ignores the connect to test environment flag if set)
 
 ## Sharing Clips
 
