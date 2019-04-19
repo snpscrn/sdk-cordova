@@ -9,16 +9,35 @@
 @implementation Snapscreen
 
 - (void) initialize:(CDVInvokedUrlCommand*)command {
-    if ([command.arguments count] == 3) {
+    if ([command.arguments count] >= 3) {
         NSString* clientID = [command argumentAtIndex: 0];
         NSString* secret = [command argumentAtIndex: 1];
         BOOL connectToTestEnvironment = [[command argumentAtIndex: 2] boolValue];
+        
+        NSString* backendURL = nil;
+        NSString* clipsharingBackendURL = nil;
+        NSString* countryCode = nil;
+        
+        if ([command.arguments count] == 4) {
+            NSString* configurationData = [command argumentAtIndex: 3];
+            NSData* data = [configurationData dataUsingEncoding:NSUTF8StringEncoding];
+            NSDictionary* configurationDictionary = [NSJSONSerialization JSONObjectWithData: data options:NSJSONReadingAllowFragments error: nil];
+            if (configurationDictionary) {
+                backendURL = [configurationDictionary objectForKey: @"backendURL"];
+                clipsharingBackendURL = [configurationDictionary objectForKey: @"clipsharingBackendURL"];
+                countryCode = [configurationDictionary objectForKey: @"countryCode"];
+            }
+        }
         
         id<SnapscreenLoggingHandler> loggingHandler = nil;
         #ifdef DEBUG
         loggingHandler = [SnapscreenNSLogLoggingHandler new];
         #endif
-        [SnapscreenKit sharedSnapscreenKitWithClientID: clientID clientSecret: secret testEnvironment: connectToTestEnvironment loggingHandler: loggingHandler locationProvider: nil delegate: self];
+        [SnapscreenKit sharedSnapscreenKitWithClientID: clientID clientSecret: secret testEnvironment: connectToTestEnvironment backendURL: backendURL clipsharingBackendURL: clipsharingBackendURL loggingHandler: loggingHandler locationProvider: nil delegate: self];
+        
+        if (countryCode) {
+            [SnapscreenKit sharedSnapscreenKit].countryCode = countryCode;
+        }
         
         CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK];
         [self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];

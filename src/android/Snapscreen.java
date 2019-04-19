@@ -77,17 +77,36 @@ public class Snapscreen extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
 		if (action.equals("initialize")) {
-			if (args.length() == 3) {
+			if (args.length() >= 3) {
                 String clientID = args.optString(0);
                 String secret = args.optString(1);
                 boolean connectToTestEnvironment = args.optBoolean(2, false);
 
-                SnapscreenKit.init(cordova.getContext(), clientID, secret, connectToTestEnvironment, new SnapscreenKitListener() {
+                String backendURL = null;
+                String clipsharingBackendURL = null;
+                String countryCode = null;
+
+                if (args.length() == 4) {
+                    String configurationData = args.optString(3);
+                    try {
+                        JSONObject configurationObject = new JSONObject(configurationData);
+
+                        backendURL = configurationObject.optString("backendURL");
+                        clipsharingBackendURL = configurationObject.optString("clipsharingBackendURL");
+                        countryCode = configurationObject.optString("countryCode");
+                } catch (Exception ignored) {
+                }
+
+                SnapscreenKit.init(cordova.getContext(), clientID, secret, connectToTestEnvironment, backendURL, clipsharingBackendURL, new SnapscreenKitListener() {
                     @Override
                     public void snapscreenKitDidReceiveInvalidClientIdAndSecret() {
                         Log.e("Snapscreen", "SnapscreenKit initialization did fail");
                     }
                 });
+
+                if (countryCode != null) {
+                    SnapscreenKit.getInstance().setCountryCode(countryCode);
+                }
 
                 PluginResult pluginResult = new PluginResult(Status.OK);
                 callbackContext.sendPluginResult(pluginResult);
