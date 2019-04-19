@@ -94,7 +94,8 @@ public class Snapscreen extends CordovaPlugin {
                         backendURL = configurationObject.optString("backendURL");
                         clipsharingBackendURL = configurationObject.optString("clipsharingBackendURL");
                         countryCode = configurationObject.optString("countryCode");
-                } catch (Exception ignored) {
+                    } catch (Exception ignored) {
+                    }
                 }
 
                 SnapscreenKit.init(cordova.getContext(), clientID, secret, connectToTestEnvironment, backendURL, clipsharingBackendURL, new SnapscreenKitListener() {
