@@ -130,6 +130,9 @@
                         }
                     }
                 }
+                if (tutorialContentArray.count > 0) {
+                    configuration.tutorialContent = tutorialContentArray;
+                }
             }
             
             NSString* mainButtonColorHex = [configurationDictionary objectForKey: @"mainButtonColor"];
