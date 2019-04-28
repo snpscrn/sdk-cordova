@@ -191,7 +191,7 @@ public class Snapscreen extends CordovaPlugin {
 
                             if (tutorialObject != null) {
                                 String text = tutorialObject.optString("text", "");
-                                String imageResourceIdName = configurationObject.optString("imageResourceId", null);
+                                String imageResourceIdName = tutorialObject.optString("imageResourceId", null);
                                 if (imageResourceIdName != null) {
                                     int imageResourceId = cordova.getActivity().getResources().getIdentifier(imageResourceIdName,"drawable", cordova.getActivity().getPackageName());
                                     if (imageResourceId != 0) {
