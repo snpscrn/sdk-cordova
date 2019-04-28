@@ -91,9 +91,9 @@ public class Snapscreen extends CordovaPlugin {
                     try {
                         JSONObject configurationObject = new JSONObject(configurationData);
 
-                        backendURL = configurationObject.optString("backendURL");
-                        clipsharingBackendURL = configurationObject.optString("clipsharingBackendURL");
-                        countryCode = configurationObject.optString("countryCode");
+                        backendURL = configurationObject.optString("backendURL", null);
+                        clipsharingBackendURL = configurationObject.optString("clipsharingBackendURL", null);
+                        countryCode = configurationObject.optString("countryCode", null);
                     } catch (Exception ignored) {
                     }
                 }
@@ -127,7 +127,7 @@ public class Snapscreen extends CordovaPlugin {
                 try {
                     JSONObject configurationObject = new JSONObject(configurationData);
 
-                    String sharingIntroductionHint = configurationObject.optString("sharingIntroductionHint");
+                    String sharingIntroductionHint = configurationObject.optString("sharingIntroductionHint", null);
                     if (sharingIntroductionHint != null) {
                         configuration.setSharingIntroductionHint(SpannableString.valueOf(sharingIntroductionHint));
                     }
@@ -144,7 +144,7 @@ public class Snapscreen extends CordovaPlugin {
                         configuration.setMaximumSmallSponsorImageDpHeight(maximumSmallSponsorImageDpHeight);
                     }
 
-                    String largeSponsorImageResourceIdName = configurationObject.optString("largeSponsorImageResourceIdName");
+                    String largeSponsorImageResourceIdName = configurationObject.optString("largeSponsorImageResourceIdName", null);
                     if (largeSponsorImageResourceIdName != null) {
                         int largeSponsorImageResourceId = cordova.getActivity().getResources().getIdentifier(largeSponsorImageResourceIdName,"drawable", cordova.getActivity().getPackageName());
                         if (largeSponsorImageResourceId != 0) {
@@ -152,7 +152,7 @@ public class Snapscreen extends CordovaPlugin {
                         }
                     }
 
-                    String smallSponsorImageResourceIdName = configurationObject.optString("smallSponsorImageResourceIdName");
+                    String smallSponsorImageResourceIdName = configurationObject.optString("smallSponsorImageResourceIdName", null);
                     if (smallSponsorImageResourceIdName != null) {
                         int smallSponsorImageResourceId = cordova.getActivity().getResources().getIdentifier(smallSponsorImageResourceIdName,"drawable", cordova.getActivity().getPackageName());
                         if (smallSponsorImageResourceId != 0) {
@@ -160,7 +160,7 @@ public class Snapscreen extends CordovaPlugin {
                         }
                     }
 
-                    String tutorialLogoImageResourceIdName = configurationObject.optString("tutorialLogoImageResourceIdName");
+                    String tutorialLogoImageResourceIdName = configurationObject.optString("tutorialLogoImageResourceIdName", null);
                     if (tutorialLogoImageResourceIdName != null) {
                         int tutorialLogoImageResourceId = cordova.getActivity().getResources().getIdentifier(tutorialLogoImageResourceIdName,"drawable", cordova.getActivity().getPackageName());
                         if (tutorialLogoImageResourceId != 0) {
@@ -168,7 +168,7 @@ public class Snapscreen extends CordovaPlugin {
                         }
                     }
 
-                    String sharingIntroductionHintImageResourceIdName = configurationObject.optString("sharingIntroductionHintImageResourceIdName");
+                    String sharingIntroductionHintImageResourceIdName = configurationObject.optString("sharingIntroductionHintImageResourceIdName", null);
                     if (sharingIntroductionHintImageResourceIdName != null) {
                         int sharingIntroductionHintImageResourceId = cordova.getActivity().getResources().getIdentifier(sharingIntroductionHintImageResourceIdName,"drawable", cordova.getActivity().getPackageName());
                         if (sharingIntroductionHintImageResourceId != 0) {
@@ -176,7 +176,7 @@ public class Snapscreen extends CordovaPlugin {
                         }
                     }
 
-                    String tutorialBackgroundImageResourceIdName = configurationObject.optString("tutorialBackgroundImageResourceIdName");
+                    String tutorialBackgroundImageResourceIdName = configurationObject.optString("tutorialBackgroundImageResourceIdName", null);
                     if (tutorialBackgroundImageResourceIdName != null) {
                         int tutorialBackgroundImageResourceId = cordova.getActivity().getResources().getIdentifier(tutorialBackgroundImageResourceIdName,"drawable", cordova.getActivity().getPackageName());
                         if (tutorialBackgroundImageResourceId != 0) {
@@ -191,7 +191,7 @@ public class Snapscreen extends CordovaPlugin {
 
                             if (tutorialObject != null) {
                                 String text = tutorialObject.optString("text", "");
-                                String imageResourceIdName = configurationObject.optString("imageResourceId");
+                                String imageResourceIdName = configurationObject.optString("imageResourceId", null);
                                 if (imageResourceIdName != null) {
                                     int imageResourceId = cordova.getActivity().getResources().getIdentifier(imageResourceIdName,"drawable", cordova.getActivity().getPackageName());
                                     if (imageResourceId != 0) {
