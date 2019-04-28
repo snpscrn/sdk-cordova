@@ -67,6 +67,11 @@ To pass configuration parameters on iOS, use the third parameter of the startCli
 * *tutorialTextColor*: Tutorial text color in Hex (without the leading #)
 * *sharingIntroductionHint*: Text for the briefly shown sharing introduction hint (formatted with mainButtonColor and default tutorialFont)
 
+Add the resource images by adding the following tags to the ios platform in config.xml:
+
+```<resource-file src="res/clipshare/ios/hdpi/yourImage.png" target="yourImage.png" />```
+
+
 ### Passing configuration parameters on Android
 
 To pass configuration parameters on Android, use the third parameter of the startClipSharing method to pass in a map with the following possible parameters:
@@ -82,9 +87,9 @@ To pass configuration parameters on Android, use the third parameter of the star
 * *tutorialBackgroundImageResourceIdName*: Resource name for a drawable. Gets resolved via Android resources
 * *tutorialContent*: An array of tutorial content entries with each being a map that contains *imageResourceId* (Resource name for a drawable. Gets resolved via Android resources) and *text*
 
-Add the resource drawable by adding the following tags to the android platform in config.xml:
+Add the resource drawable by adding the following tags to the android platform in config.xml (please note that Android resource names need to be in lowercase and that the resource need to be added to be app/src/main/res subfolder to be correctly found by the application at runtime):
 
-```<resource-file src="www/res/drawable-hdpi/yourImage.png" target="res/drawable-hdpi/yourImage.png" />```
+```<resource-file src="res/clipshare/android/hdpi/yourimage.png" target="app/src/main/res/drawable-hdpi/yourimage.png" />```
 
 To modify various localization texts, add custom entries to the platform's strings.xml by adding the following tag with the entries you want to customize to the android platform in config.xml:
 
