@@ -33,11 +33,13 @@
         #ifdef DEBUG
         loggingHandler = [SnapscreenNSLogLoggingHandler new];
         #endif
-        [SnapscreenKit sharedSnapscreenKitWithClientID: clientID clientSecret: secret testEnvironment: connectToTestEnvironment backendURL: backendURL clipsharingBackendURL: clipsharingBackendURL loggingHandler: loggingHandler locationProvider: nil delegate: self];
+        SnapscreenKit* instance = [SnapscreenKit sharedSnapscreenKitWithClientID: clientID clientSecret: secret testEnvironment: connectToTestEnvironment backendURL: backendURL clipsharingBackendURL: clipsharingBackendURL loggingHandler: loggingHandler locationProvider: nil delegate: self];
         
         if (countryCode) {
-            [SnapscreenKit sharedSnapscreenKit].countryCode = countryCode;
+            instance.countryCode = countryCode;
         }
+        
+        [SnapscreenKit sharedSnapscreenKit].accessTokenHolder.accessToken = nil;
         
         CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK];
         [self.commandDelegate sendPluginResult:pluginResult callbackId: command.callbackId];
