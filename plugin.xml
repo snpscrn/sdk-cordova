@@ -25,7 +25,7 @@
         </config-file>
 		
 		<config-file target="AndroidManifest.xml" parent="/manifest/application">
-			<activity android:name="com.snapscreen.sdk.ui.ClipSharingActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+			<activity android:name="com.snapscreen.sdk.ui.ClipSharingActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 		</config-file>
 		
         <framework src="src/android/build-extras.gradle" custom="true" type="gradleReference" />
