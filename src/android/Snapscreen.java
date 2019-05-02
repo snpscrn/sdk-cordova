@@ -51,7 +51,7 @@ public class Snapscreen extends CordovaPlugin {
                     } catch (Exception ignored) {
                     }
 
-                    PluginResult pluginResult = new PluginResult(Status.OK);
+                    PluginResult pluginResult = new PluginResult(Status.OK, obj);
                     this.currentCallbackContext.sendPluginResult(pluginResult);
 
                     this.currentCallbackContext = null;
@@ -65,7 +65,7 @@ public class Snapscreen extends CordovaPlugin {
                     } catch (Exception ignored) {
                     }
 
-                    PluginResult pluginResult = new PluginResult(Status.OK);
+                    PluginResult pluginResult = new PluginResult(Status.OK, obj);
                     this.currentCallbackContext.sendPluginResult(pluginResult);
 
                     this.currentCallbackContext = null;
