@@ -163,6 +163,14 @@
             }
             
             SnapscreenClipSharingNavigationController* sharingNavigationController = [[SnapscreenClipSharingNavigationController alloc] initWithConfiguration: configuration delegate: self];
+            if (mainButtonColorHex) {
+                [sharingNavigationController.navigationBar setTranslucent: NO];
+                [sharingNavigationController.navigationBar setBarTintColor: [self snapscreenColorFromHexString: mainButtonColorHex]];
+            }
+            if (mainButtonTextColorHex) {
+                [[UIBarButtonItem appearance] setTintColor: [self snapscreenColorFromHexString: mainButtonTextColorHex]];
+                [sharingNavigationController.navigationBar setTintColor: [self snapscreenColorFromHexString: mainButtonTextColorHex]];
+            }
             [self.viewController presentViewController: sharingNavigationController animated: YES completion: nil];
             
             CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus: CDVCommandStatus_OK];
