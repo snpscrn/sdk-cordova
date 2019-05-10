@@ -87,6 +87,10 @@
             if (largeSponsorImageName) {
                 configuration.largeSponsorImage = [UIImage imageNamed: largeSponsorImageName];
             }
+            NSString* largeTutorialSponsorImageName = [configurationDictionary objectForKey: @"largeTutorialSponsorImage"];
+            if (largeTutorialSponsorImageName) {
+                configuration.largeTutorialSponsorImage = [UIImage imageNamed: largeTutorialSponsorImageName];
+            }
             NSString* smallSponsorImageName = [configurationDictionary objectForKey: @"smallSponsorImage"];
             if (smallSponsorImageName) {
                 configuration.smallSponsorImage = [UIImage imageNamed: smallSponsorImageName];
@@ -110,6 +114,10 @@
             NSNumber* maximumSponsorImageHeight = [configurationDictionary objectForKey: @"maximumSponsorImageHeight"];
             if (maximumSponsorImageHeight) {
                 configuration.maximumSponsorImageHeight = [maximumSponsorImageHeight floatValue];
+            }
+            NSNumber* maximumTutorialSponsorImageHeight = [configurationDictionary objectForKey: @"maximumTutorialSponsorImageHeight"];
+            if (maximumTutorialSponsorImageHeight) {
+                configuration.maximumTutorialSponsorImageHeight = [maximumTutorialSponsorImageHeight floatValue];
             }
             NSNumber* maximumSmallSponsorImageHeight = [configurationDictionary objectForKey: @"maximumSmallSponsorImageHeight"];
             if (maximumSmallSponsorImageHeight) {

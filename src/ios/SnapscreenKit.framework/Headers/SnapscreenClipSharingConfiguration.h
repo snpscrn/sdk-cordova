@@ -28,8 +28,11 @@ NS_ASSUME_NONNULL_BEGIN
 /** Maximum Height constraint that is applied to the tutorial logo image on the tutorial page - defaults to -1 which means that the full image height is used */
 @property (nonatomic, assign) CGFloat maximumTutorialLogoImageHeight;
 
-/** Large sponsor image that is displayed */
+/** Large sponsor image that is displayed on the snap screen */
 @property (nonatomic, strong, nullable) UIImage* largeSponsorImage;
+
+/** Large sponsor image that is displayed on the tutorial screen */
+@property (nonatomic, strong, nullable) UIImage* largeTutorialSponsorImage;
 
 /** Small sponsor image that is displayed in the trimming UI */
 @property (nonatomic, strong, nullable) UIImage* smallSponsorImage;
@@ -70,8 +73,11 @@ NS_ASSUME_NONNULL_BEGIN
 /** Image for the sharing introduction hint - displayed briefly on the trimming UI before switching to large sponsor image */
 @property (nonatomic, strong, nullable) UIImage* sharingIntroductionHintImage;
 
-/** Maximum Height constraint that is applied to the sponsor image - defaults to -1 which means that the full image height is used */
+/** Maximum Height constraint that is applied to the large sponsor image on the snap screen - defaults to -1 which means that the full image height is used */
 @property (nonatomic, assign) CGFloat maximumSponsorImageHeight;
+
+/** Maximum Height constraint that is applied to the large sponsor image on the tutorial screen - defaults to -1 which means that the full image height is used */
+@property (nonatomic, assign) CGFloat maximumTutorialSponsorImageHeight;
 
 /** Maximum Height constraint that is applied to the small sponsor image on the trimming page - defaults to -1 which means that the full image height is used */
 @property (nonatomic, assign) CGFloat maximumSmallSponsorImageHeight;

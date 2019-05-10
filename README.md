@@ -13,7 +13,7 @@ We suggest that you initialize the SDK as soon as your application starts and yo
 The last parameter is for additional initialization options. You can pass the following options here:
 
 * *countryCode*: Country code hint to be used for snapping
-* *backendURL*: The backend URL to use for the snapping backend (ignores the connect to test environment flag if set) 
+* *backendURL*: The backend URL to use for the snapping backend (ignores the connect to test environment flag if set)
 * *clipsharingBackendURL*: The backend URL to use for the clip sharing backend (ignores the connect to test environment flag if set)
 
 ## Sharing Clips
@@ -42,7 +42,7 @@ A sample code for handling the callbacks looks like this:
 	let clipsharingFailureCallback = function(error) {
 		console.log(error);
 	}
-	
+
 	snapscreen.startClipSharing(clipsharingSuccessCallback, clipsharingFailureCallback, {mainButtonColor: 'ff0000'});
 ```
 
@@ -52,13 +52,15 @@ To pass configuration parameters on iOS, use the third parameter of the startCli
 
 * *tutorialLogoImage*: Asset name for a tutorial logo image - will be loaded with [UIImage imageNamed: tutorialLogoImage];
 * *maximumTutorialLogoImageHeight*: Number with maximum tutorial logo image height in points
-* *largeSponsorImage*: Asset name for a large sponsor image image - will be loaded with [UIImage imageNamed: tutorialLogoImage];
+* *largeSponsorImage*: Asset name for a large sponsor image to be used on the snap screen - will be loaded with [UIImage imageNamed: tutorialLogoImage];
+* *largeTutorialSponsorImage*: Asset name for a large sponsor image to be used on the tutorial screen - will be loaded with [UIImage imageNamed: tutorialLogoImage];
 * *smallSponsorImage*: Asset name for a small sponsor image - will be loaded with [UIImage imageNamed: tutorialLogoImage];
 * *tutorialBackgroundImage*: Asset name for a tutorial background image - will be loaded with [UIImage imageNamed: tutorialLogoImage];
 * *snapButtonImage*: Asset name for a snap button image - will be loaded with [UIImage imageNamed: tutorialLogoImage];
 * *snapButtonTitle*: Title for the snap button
 * *sharingIntroductionHintImage*: Asset name for a sharing introduction hint image - will be loaded with [UIImage imageNamed: tutorialLogoImage];
-* *maximumSponsorImageHeight*: Number with maximum sponsor image image height in points
+* *maximumSponsorImageHeight*: Number with maximum sponsor image height in points (that is used on the snap screen)
+* *maximumTutorialSponsorImageHeight*: Number with maximum sponsor image height in points (that is used on the tutorial screen)
 * *maximumSmallSponsorImageHeight*: Number with maximum small sponsor image height in points
 * *tutorialContent*: An array of tutorial content entries with each being a map that contains *image* (asset name for an image for that tutorial page) and *text*
 * *mainButtonColor*: Main Button color in hex (without the leading #)
@@ -79,8 +81,10 @@ To pass configuration parameters on Android, use the third parameter of the star
 * *sharingIntroductionHint*: Text for sharing introduction hint
 * *maximumTutorialLogoImageDpHeight*: Integer value in DP
 * *maximumLargeSponsorImageDpHeight*: Integer value in DP
+* *maximumLargeTutorialSponsorImageDpHeight*: Integer value in DP
 * *maximumSmallSponsorImageDpHeight*: Integer value in DP
-* *largeSponsorImageResourceIdName*: Resource name for a drawable. Gets resolved via Android resources
+* *largeSponsorImageResourceIdName*: Resource name for a drawable. Gets resolved via Android resources and is used on the snap screen
+* *largeTutorialSponsorImageResourceIdName*: Resource name for a drawable. Gets resolved via Android resources and is used on the trimming screen
 * *smallSponsorImageResourceIdName*: Resource name for a drawable. Gets resolved via Android resources
 * *tutorialLogoImageResourceIdName*: Resource name for a drawable. Gets resolved via Android resources
 * *sharingIntroductionHintImageResourceIdName*: Resource name for a drawable. Gets resolved via Android resources
