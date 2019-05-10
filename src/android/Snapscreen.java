@@ -139,6 +139,10 @@ public class Snapscreen extends CordovaPlugin {
                     if (maximumLargeSponsorImageDpHeight != -1) {
                         configuration.setMaximumLargeSponsorImageDpHeight(maximumLargeSponsorImageDpHeight);
                     }
+                    int maximumLargeTutorialSponsorImageDpHeight = configurationObject.optInt("maximumLargeTutorialSponsorImageDpHeight", -1);
+                    if (maximumLargeTutorialSponsorImageDpHeight != -1) {
+                        configuration.setMaximumLargeTutorialSponsorImageDpHeight(maximumLargeTutorialSponsorImageDpHeight);
+                    }
                     int maximumSmallSponsorImageDpHeight = configurationObject.optInt("maximumSmallSponsorImageDpHeight", -1);
                     if (maximumSmallSponsorImageDpHeight != -1) {
                         configuration.setMaximumSmallSponsorImageDpHeight(maximumSmallSponsorImageDpHeight);
@@ -149,6 +153,13 @@ public class Snapscreen extends CordovaPlugin {
                         int largeSponsorImageResourceId = cordova.getActivity().getResources().getIdentifier(largeSponsorImageResourceIdName,"drawable", cordova.getActivity().getPackageName());
                         if (largeSponsorImageResourceId != 0) {
                             configuration.setLargeSponsorImageResourceId(largeSponsorImageResourceId);
+                        }
+                    }
+                    String largeTutorialSponsorImageResourceIdName = configurationObject.optString("largeTutorialSponsorImageResourceIdName", null);
+                    if (largeSponsorImageResourceIdName != null) {
+                        int largeTutorialSponsorImageResourceId = cordova.getActivity().getResources().getIdentifier(largeTutorialSponsorImageResourceIdName,"drawable", cordova.getActivity().getPackageName());
+                        if (largeTutorialSponsorImageResourceId != 0) {
+                            configuration.setLargeTutorialSponsorImageResourceId(largeTutorialSponsorImageResourceId);
                         }
                     }
 
