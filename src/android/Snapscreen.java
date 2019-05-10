@@ -156,7 +156,7 @@ public class Snapscreen extends CordovaPlugin {
                         }
                     }
                     String largeTutorialSponsorImageResourceIdName = configurationObject.optString("largeTutorialSponsorImageResourceIdName", null);
-                    if (largeSponsorImageResourceIdName != null) {
+                    if (largeTutorialSponsorImageResourceIdName != null) {
                         int largeTutorialSponsorImageResourceId = cordova.getActivity().getResources().getIdentifier(largeTutorialSponsorImageResourceIdName,"drawable", cordova.getActivity().getPackageName());
                         if (largeTutorialSponsorImageResourceId != 0) {
                             configuration.setLargeTutorialSponsorImageResourceId(largeTutorialSponsorImageResourceId);
